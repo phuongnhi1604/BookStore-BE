@@ -31,7 +31,6 @@ public class AccountController {
         return new ResponseEntity<Account>(HttpStatus.NOT_FOUND);
     }
 
-    @PreAuthorize("hasRole('ROLE_USER')")
     @PostMapping("/create-Customer-Account")
     public ResponseEntity<?> createCustomerAccount(@RequestBody CustomerAccount customerAccount, BindingResult bindingResult){
         if (bindingResult.hasErrors()) {

@@ -45,15 +45,18 @@ public class AccountServiceImpl implements AccountService {
 //        if (accountRepository.findAccountByUsername(customerAccount.getAccount().getUsername()) != null){
 //            System.out.println("Username existed");
 //        }else {
-            Set<Role> roles = new HashSet<>();
-            customerRepository.save(customerAccount.getCustomer());
-            Optional<Role> role = Optional.of(roleRepository.findById(Long.valueOf(2)).get());
-            roles.add(role.get());
-            Account account = customerAccount.getAccount();
-            account.setRoles(roles);
-            account.setPassword(getEncodedPassword(customerAccount.getAccount().getPassword()));
-            customerAccount.getCustomer().setCustomerAccountId(account);
-            customerRepository.save(customerAccount.getCustomer());
+        Set<Role> roles = new HashSet<>();
+        customerRepository.save(customerAccount.getCustomer());
+        Optional<Role> role = Optional.of(roleRepository.findById(Long.valueOf(2)).get());
+        if (role.isPresent()) {
+            Role role1 = role.get();
+            roles.add(role1);
+        }
+        Account account = customerAccount.getAccount();
+        account.setRoles(roles);
+        account.setPassword(getEncodedPassword(customerAccount.getAccount().getPassword()));
+        customerAccount.getCustomer().setCustomerAccountId(account);
+        customerRepository.save(customerAccount.getCustomer());
 //        }
     }
 }
