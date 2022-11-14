@@ -1,8 +1,8 @@
 package module6.backend.bookstorebe.security.jwt;
 
 import module6.backend.bookstorebe.entity.account.Account;
-import module6.backend.bookstorebe.payload.request.LoginRequest;
-import module6.backend.bookstorebe.payload.response.JwtResponse;
+import module6.backend.bookstorebe.repository.payload.request.LoginRequest;
+import module6.backend.bookstorebe.repository.payload.response.JwtResponse;
 import module6.backend.bookstorebe.repository.AccountRepository;
 import module6.backend.bookstorebe.security.utils.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;

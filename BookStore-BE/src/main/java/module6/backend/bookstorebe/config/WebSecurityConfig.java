@@ -54,11 +54,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.cors();
         httpSecurity.csrf().disable()
-                .authorizeRequests().antMatchers("/auth/login","/api/account/create-Customer-Account","/api/book/**").permitAll()
+                .authorizeRequests()
                 .antMatchers(HttpHeaders.ALLOW).permitAll()
-                .antMatchers(GET,"/api/account/**").hasAnyAuthority("ROLE_ADMIN")
-//                .antMatchers("/api/customer/**", "/api/import/**", "/api/cart/**").hasAnyAuthority("ROLE_ACCOUNTANT")
-//                .antMatchers("/api/customer/**", "/api/employee/**").hasAuthority("ROLE_SELL")
+//                .antMatchers("/api/account/**").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/auth/login","/api/account/create-Customer-Account","/api/book/**", "/api/category/**").permitAll()
                 .antMatchers(  "/**/*.js", "/**/*.css", "/**/*.jpg", "/**/*.png").permitAll()
                 .anyRequest().authenticated()
                 .and()

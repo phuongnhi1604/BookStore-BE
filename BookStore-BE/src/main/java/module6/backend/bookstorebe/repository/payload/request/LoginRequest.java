@@ -1,4 +1,4 @@
-package module6.backend.bookstorebe.payload.request;
+package module6.backend.bookstorebe.repository.payload.request;
 
 public class LoginRequest {
     private String username;

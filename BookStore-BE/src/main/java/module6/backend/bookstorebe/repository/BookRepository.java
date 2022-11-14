@@ -17,4 +17,10 @@ public interface BookRepository extends JpaRepository<Book, Long> {
 
     @Query(value = "SELECT * FROM book order by book_publish_date desc limit 8", nativeQuery = true)
     List<Book> findTopNewBook();
+
+    @Query(value = "SELECT * FROM book where book_category_id=?1 order by book_publish_date desc", nativeQuery = true)
+    Page<Book> findAllBookByCategoryId(Long book_category_id, Pageable pageable);
+
+    @Query(value = "SELECT * FROM book where book_author_id=?1 order by book_publish_date desc limit 4", nativeQuery = true)
+    List<Book> findAllBookByAuthorId(Long book_author_id);
 }

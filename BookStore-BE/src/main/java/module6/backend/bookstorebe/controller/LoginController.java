@@ -1,7 +1,7 @@
 package module6.backend.bookstorebe.controller;
 
-import module6.backend.bookstorebe.payload.request.LoginRequest;
-import module6.backend.bookstorebe.payload.response.JwtResponse;
+import module6.backend.bookstorebe.repository.payload.request.LoginRequest;
+import module6.backend.bookstorebe.repository.payload.response.JwtResponse;
 import module6.backend.bookstorebe.security.jwt.JwtServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;

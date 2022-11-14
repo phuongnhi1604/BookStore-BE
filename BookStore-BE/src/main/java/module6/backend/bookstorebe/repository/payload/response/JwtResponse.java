@@ -1,4 +1,4 @@
-package module6.backend.bookstorebe.payload.response;
+package module6.backend.bookstorebe.repository.payload.response;
 
 import module6.backend.bookstorebe.entity.account.Account;
 

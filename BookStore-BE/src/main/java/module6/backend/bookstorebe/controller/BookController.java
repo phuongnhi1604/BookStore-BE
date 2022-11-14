@@ -30,7 +30,7 @@ public class BookController {
         return new ResponseEntity<List<Book>>(bookList, HttpStatus.OK);
     }
     @GetMapping("/latest")
-    public ResponseEntity<Page<Book>> getAllTopNewBook(@PageableDefault(value = 8) Pageable pageable){
+    public ResponseEntity<Page<Book>> getAllTopNewBook(@PageableDefault(value = 12) Pageable pageable){
         Page<Book> books = bookService.findAllTopNewBook(pageable);
         if (books.isEmpty()) {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -45,5 +45,23 @@ public class BookController {
         }catch (NoSuchElementException e){
             return new ResponseEntity<Book>(HttpStatus.NOT_FOUND);
         }
+    }
+
+    @GetMapping("/category/{id}")
+    public ResponseEntity<Page<Book>> getAllBookByCategoryId(@PathVariable("id") Long categoryId, @PageableDefault(value = 8) Pageable pageable) {
+        Page<Book> books = bookService.findAllBookByCategoryId(categoryId, pageable);
+        if (books.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+
+    @GetMapping("/author/{id}")
+    public ResponseEntity<List<Book>> getAllBookByAuthorId(@PathVariable("id") Long authorId) {
+        List<Book> books = bookService.findAllBookByAuthorId(authorId);
+        if (books.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(books, HttpStatus.OK);
     }
 }
