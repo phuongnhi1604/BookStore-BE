@@ -64,4 +64,21 @@ public class BookController {
         }
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
+
+    @GetMapping("/sameAuthor/{id}")
+    public ResponseEntity<List<Book>> getBookSameAuthor(@PathVariable("id") Long authorId) {
+        List<Book> books = bookService.findBookSameAuthor(authorId);
+        if (books.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
+    @GetMapping("/promotions")
+    public ResponseEntity<Page<Book>> getAllBookByPromotion(@PageableDefault(value = 12) Pageable pageable) {
+        Page<Book> books = bookService.findAllBookByPromotion(pageable);
+        if (books.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
 }

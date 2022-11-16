@@ -41,5 +41,15 @@ public class BookServiceImpl implements BookService {
         return bookRepository.findAllBookByAuthorId(authorId);
     }
 
+    @Override
+    public List<Book> findBookSameAuthor(Long authorId) {
+        return bookRepository.findBookSameAuthor(authorId);
+    }
+
+    @Override
+    public Page<Book> findAllBookByPromotion(Pageable pageable) {
+        return bookRepository.findAllBookByPromotion(pageable);
+    }
+
 
 }

@@ -17,8 +17,8 @@ public class Account {
 
     @NotBlank
     @NotNull
-    @Length(max = 20, min = 5)
-    @Pattern(regexp = "^[a-z0-9]{5,20}$")
+//    @Length(max = 20, min = 5)
+//    @Pattern(regexp = "^[a-z0-9]{5,20}$")
     @Column(unique = true)
     private String username;
 

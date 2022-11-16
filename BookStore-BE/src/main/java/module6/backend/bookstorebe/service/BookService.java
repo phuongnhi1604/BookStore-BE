@@ -13,4 +13,6 @@ public interface BookService {
 
     Page<Book> findAllBookByCategoryId(Long categoryId, Pageable pageable);
     List<Book> findAllBookByAuthorId(Long authorId);
+    List<Book>findBookSameAuthor(Long authorId);
+    Page<Book> findAllBookByPromotion(Pageable pageable);
 }
