@@ -81,4 +81,13 @@ public class BookController {
         }
         return new ResponseEntity<>(books, HttpStatus.OK);
     }
+
+    @GetMapping("/search/{key}")
+    public ResponseEntity<Page<Book>> searchBook(@PathVariable("key") String searchKey,@PageableDefault(value = 4) Pageable pageable) {
+        Page<Book> books = bookService.searchBook(searchKey,pageable);
+        if (books.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(books, HttpStatus.OK);
+    }
 }
