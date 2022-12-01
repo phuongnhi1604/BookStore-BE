@@ -40,7 +40,7 @@ public class BookController {
     @GetMapping("/{id}")
     public ResponseEntity<Book> getBookById(@PathVariable("id") Long id){
         try{
-            Book book = bookService.findById(id);
+            Book book = bookService.findBookById(id);
             return new ResponseEntity<Book>(book, HttpStatus.OK);
         }catch (NoSuchElementException e){
             return new ResponseEntity<Book>(HttpStatus.NOT_FOUND);

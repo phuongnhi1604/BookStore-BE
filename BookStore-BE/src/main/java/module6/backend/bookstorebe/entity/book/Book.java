@@ -25,7 +25,7 @@ public class Book {
     private int bookQuantity;
     private String bookPublisher;
     private Boolean bookFlag = false;
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "book_category_id")
     private Category bookCategoryId;
 
@@ -38,6 +38,25 @@ public class Book {
     private Promotion bookPromotionId;
 
     public Book() {
+    }
+
+    public Book(Long bookId, String bookName, String bookCode, String bookImage, String bookContent, double bookPrice, String bookTranslator, int bookTotalPage, String bookSize, LocalDate bookPublishDate, int bookQuantity, String bookPublisher, Boolean bookFlag, Category bookCategoryId, Author bookAuthorId, Promotion bookPromotionId) {
+        this.bookId = bookId;
+        this.bookName = bookName;
+        this.bookCode = bookCode;
+        this.bookImage = bookImage;
+        this.bookContent = bookContent;
+        this.bookPrice = bookPrice;
+        this.bookTranslator = bookTranslator;
+        this.bookTotalPage = bookTotalPage;
+        this.bookSize = bookSize;
+        this.bookPublishDate = bookPublishDate;
+        this.bookQuantity = bookQuantity;
+        this.bookPublisher = bookPublisher;
+        this.bookFlag = bookFlag;
+        this.bookCategoryId = bookCategoryId;
+        this.bookAuthorId = bookAuthorId;
+        this.bookPromotionId = bookPromotionId;
     }
 
     public Long getBookId() {

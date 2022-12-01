@@ -13,6 +13,7 @@ import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
@@ -36,7 +37,7 @@ public class AccountController {
     }
 
     @PostMapping("/create-Customer-Account")
-    public ResponseEntity<?> createCustomerAccount(@RequestBody CustomerAccount customerAccount, BindingResult bindingResult){
+    public ResponseEntity<?> createCustomerAccount(@RequestBody @Valid CustomerAccount customerAccount, BindingResult bindingResult){
 //        if (bindingResult.hasErrors()) {
 //            Map<String, String> errors = new HashMap<>();
 //            bindingResult.getAllErrors().forEach((error) -> {

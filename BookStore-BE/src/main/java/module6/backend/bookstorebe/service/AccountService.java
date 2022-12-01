@@ -7,4 +7,5 @@ public interface AccountService {
     Account findAccountByUsername(String username);
     String getEncodedPassword(String password);
     void createCustomerAccount(CustomerAccount customerAccount);
+    Account findById(Long accountId);
 }

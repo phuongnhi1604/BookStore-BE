@@ -59,6 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/api/account/**").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/auth/login","/api/account/create-Customer-Account","/api/book/**", "/api/category/**").permitAll()
                 .antMatchers(  "/**/*.js", "/**/*.css", "/**/*.jpg", "/**/*.png").permitAll()
+                .antMatchers("/api/cart/**").hasAuthority("ROLE_USER")
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(jwtAuthenticationEntryPoint)

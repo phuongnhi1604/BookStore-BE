@@ -11,11 +11,13 @@ public interface BookService {
     Page<Book> findAllTopNewBook(Pageable pageable);
     List<Book> findTopNewBook();
 
-    Book findById(Long id);
+    Book findBookById(Long id);
 
     Page<Book> findAllBookByCategoryId(Long categoryId, Pageable pageable);
     List<Book> findAllBookByAuthorId(Long authorId);
     List<Book>findBookSameAuthor(Long authorId);
     Page<Book> findAllBookByPromotion(Pageable pageable);
     Page<Book> searchBook(String searchKey, Pageable pageable);
+
+    Book updateQuantityBook(Book book);
 }

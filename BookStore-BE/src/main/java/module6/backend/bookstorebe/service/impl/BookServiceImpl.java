@@ -27,8 +27,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book findById(Long id) {
-        return bookRepository.findById(id).orElse(null);
+    public Book findBookById(Long id) {
+        return bookRepository.findBookById(id);
     }
 
     @Override
@@ -54,6 +54,11 @@ public class BookServiceImpl implements BookService {
     @Override
     public Page<Book> searchBook(String searchKey, Pageable pageable) {
         return bookRepository.searchBook(searchKey, pageable);
+    }
+
+    @Override
+    public Book updateQuantityBook(Book book) {
+        return bookRepository.save(book);
     }
 
 

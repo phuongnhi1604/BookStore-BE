@@ -35,4 +35,8 @@ public interface BookRepository extends JpaRepository<Book, Long> {
     @Query(value = "SELECT * FROM book b join category c on b.book_category_id = c.category_id join author au on b.book_author_id = au.author_id where b.book_name like concat('%',:search_key,'%') or c.category_name like concat('%',:search_key,'%')  or au.author_name like concat('%',:search_key,'%') order by b.book_publish_date desc", nativeQuery = true,
             countQuery = "SELECT count(*) from (SELECT * FROM book b join category c on b.book_category_id = c.category_id join author au on b.book_author_id = au.author_id where b.book_name like concat('%',:search_key,'%') or c.category_name like concat('%',:search_key,'%')  or au.author_name like concat('%',:search_key,'%')  order by b.book_publish_date desc) abc ")
     Page<Book> searchBook(@Param("search_key") String search_key, Pageable pageable);
+
+    @Query(value = "select * from book where book_flag = 0 and book_id > 0 and book_id = ?1", nativeQuery = true)
+    Book findBookById(Long id);
+
 }

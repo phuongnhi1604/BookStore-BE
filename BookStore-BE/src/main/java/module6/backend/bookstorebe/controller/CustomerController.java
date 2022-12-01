@@ -23,4 +23,10 @@ public class CustomerController {
             return new ResponseEntity<>(customer, HttpStatus.OK);
         }
     }
+
+    @GetMapping("/getCustomerByAccount")
+    public ResponseEntity<Customer> findCustomerByAccountId(@RequestParam("accountId") Long accountId) {
+        Customer customer = this.customerService.findCustomerByAccountId(accountId);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
+    }
 }

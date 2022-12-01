@@ -11,7 +11,7 @@ public class Promotion {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long promotionId;
-    private double promotion_percent;
+    private double promotionPercent;
 
 
     @OneToMany(mappedBy = "bookPromotionId", cascade = CascadeType.ALL)
@@ -28,14 +28,13 @@ public class Promotion {
         this.promotionId = promotionId;
     }
 
-    public double getPromotion_percent() {
-        return promotion_percent;
+    public double getPromotionPercent() {
+        return promotionPercent;
     }
 
-    public void setPromotion_percent(double promotion_percent) {
-        this.promotion_percent = promotion_percent;
+    public void setPromotionPercent(double promotionPercent) {
+        this.promotionPercent = promotionPercent;
     }
-
 
     public List<Book> getBookList() {
         return bookList;
